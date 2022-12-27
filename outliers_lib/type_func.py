@@ -1,5 +1,7 @@
+# func to cleaning data of reasons
 # func to improve names of contract
-def change_rts(name):
+  
+def get_stop(name):
     """
     Находит выбросы в данных, используя метод межквартильного размаха. 
     Классический метод модифицирован путем добавления:
@@ -16,38 +18,16 @@ def change_rts(name):
         pandas.DataFrame: наблюдения, попавшие в разряд выбросов
         pandas.DataFrame: очищенные данные, из которых исключены выбросы
     """
-    if name == 'RIH':
-        return 'RTS'
-    else:
-        return name
-    
-def get_br_type(name):
-    """
-    Находит выбросы в данных, используя метод межквартильного размаха. 
-    Классический метод модифицирован путем добавления:
-    * возможности логарифмирования распредления
-    * ручного управления количеством межквартильных размахов в обе стороны распределения
-    Args:
-        data (pandas.DataFrame): набор данных
-        feature (str): имя признака, на основе которого происходит поиск выбросов
-        left (float, optional): количество межквартильных размахов в левую сторону распределения. По умолчанию 1.5.
-        right (float, optional): количество межквартильных размахов в правую сторону распределения. По умолчанию 1.5.
-        log_scale (bool, optional): режим логарифмирования. По умолчанию False - логарифмирование не применяется.
-
-    Returns:
-        pandas.DataFrame: наблюдения, попавшие в разряд выбросов
-        pandas.DataFrame: очищенные данные, из которых исключены выбросы
-    """
-    br_list = ['BRH','BRG','BRJ'] #create list of barel
+    st_list = ['stop', 'Выбило по стопу','стоп','Stop','' ] #create list of stop closed
    
-    if name in br_list:
-        # if it is oil
-        res = 'BR'
+    if name in st_list:
+        # if it is stop
+        res = 'Stop'
         return res
     else:
         return name    
 
-def get_si_type(name):
+def get_by_hands(name):
     """
     Находит выбросы в данных, используя метод межквартильного размаха. 
     Классический метод модифицирован путем добавления:
@@ -64,16 +44,17 @@ def get_si_type(name):
         pandas.DataFrame: наблюдения, попавшие в разряд выбросов
         pandas.DataFrame: очищенные данные, из которых исключены выбросы
     """
-    si_list = ['SIH','SIM','SIH','si','Si'] #create list of si 
+    hn_list = ['закрыл вруную',' Закрыл вручную','hans',
+               'закрыл в руччную','hands',  ] #create list of hands closed
    
-    if name in si_list:
-        # if it is dollar
-        res = 'SI'
+    if name in hn_list:
+        # if it is hands
+        res = 'Hands'
         return res
     else:
         return name 
     
-def get_gd_type(name):
+def get_take(name):
     """
     Находит выбросы в данных, используя метод межквартильного размаха. 
     Классический метод модифицирован путем добавления:
@@ -90,38 +71,39 @@ def get_gd_type(name):
         pandas.DataFrame: наблюдения, попавшие в разряд выбросов
         pandas.DataFrame: очищенные данные, из которых исключены выбросы
     """
-    gd_list = ['GDH','GDJ'] #create list of gold #create list of gd 
+    tk_list = ['take','тейк',' Тейк',] #create list of take closed
    
-    if name in gd_list:
-        # if it is gold
-        res = 'GD'
+    if name in tk_list:
+        # if it is take
+        res = 'Take'
         return res
     else:
         return name 
 
-def get_sf_type(name):
-    """
-    Находит выбросы в данных, используя метод межквартильного размаха. 
-    Классический метод модифицирован путем добавления:
-    * возможности логарифмирования распредления
-    * ручного управления количеством межквартильных размахов в обе стороны распределения
-    Args:
-        data (pandas.DataFrame): набор данных
-        feature (str): имя признака, на основе которого происходит поиск выбросов
-        left (float, optional): количество межквартильных размахов в левую сторону распределения. По умолчанию 1.5.
-        right (float, optional): количество межквартильных размахов в правую сторону распределения. По умолчанию 1.5.
-        log_scale (bool, optional): режим логарифмирования. По умолчанию False - логарифмирование не применяется.
-
-    Returns:
-        pandas.DataFrame: наблюдения, попавшие в разряд выбросов
-        pandas.DataFrame: очищенные данные, из которых исключены выбросы
-    """
-    sf_list = ['SFH','Spyf'] #create list of gold #create list of sf 
-   
-    if name in sf_list:
-        # if it is SP500
-        res = 'SF'
-        return res
-    else:
-        return name 
     
+# CALL THIS FUNC LAST, THIS CHANGES MAST BE APPLY AFTER MAIN CLEANING
+def get_other(name):
+    """
+    Находит выбросы в данных, используя метод межквартильного размаха. 
+    Классический метод модифицирован путем добавления:
+    * возможности логарифмирования распредления
+    * ручного управления количеством межквартильных размахов в обе стороны распределения
+    Args:
+        data (pandas.DataFrame): набор данных
+        feature (str): имя признака, на основе которого происходит поиск выбросов
+        left (float, optional): количество межквартильных размахов в левую сторону распределения. По умолчанию 1.5.
+        right (float, optional): количество межквартильных размахов в правую сторону распределения. По умолчанию 1.5.
+        log_scale (bool, optional): режим логарифмирования. По умолчанию False - логарифмирование не применяется.
+
+    Returns:
+        pandas.DataFrame: наблюдения, попавшие в разряд выбросов
+        pandas.DataFrame: очищенные данные, из которых исключены выбросы
+    """
+
+    all_list = ['Take','Hands','Stop'] #create list of main reasons
+   
+    if name in all_list:
+        # if it is our certain values
+        return name
+    else:
+        return 'Other'
