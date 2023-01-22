@@ -76,6 +76,6 @@ All infirmation show in these jupyter files:
 * [Skakun Dmitrii](https://www.instagram.com/skakun_dr/)
 
 ## Findings
-
+git sta
 In conclusion, we can say that the work done has a positive effect on future modeling, and helps to build a more accurate model.
 This work allows you to analyze the results of trading for the year, identify weaknesses, and points that require attention in the implementation of future transactions.
