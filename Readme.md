@@ -1,4 +1,3 @@
-
 ![](/images/logo_traiding.jpg)
 # <center> Project: Analysis Traiding on MOEX in 2022  </center>
 ## Contents
