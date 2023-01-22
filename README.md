@@ -1,6 +1,6 @@
 
-![](/images/hh_logo.jpg)
-# <center> Project: Resume analysis for HH.ru </center>
+![](/images/logo_traiding.jpg)
+# <center> Project: Analysis Traiding on MOEX in 2022  </center>
 ## Contents
 1. [Project description](#Project-description)
 2. [About Structure](#About%20Structure)
@@ -10,22 +10,21 @@
 6. [Findings](Findings)
 
 ## Project description
-
-> **HH.ru** - HeadHunter (hh.ru) is the largest Russian online recruitment company developing business in Russia, Belarus, and Kazakhstan. More than 515 thousand companies are HeadHunter clients. The extensive database of applicants on hh.ru contains more than 55 million resumes, and the average daily number of vacancies exceeds 933 thousand. According to SimilarWeb, HeadHunter ranks third in the world in popularity among job search portals and employees[3].
-
+///
+> **Target** - The purpose of this project is to research the dynamics of the balance of traders over the trading period. Identify errors in trading operations and visualize the dependencies between them.
+Provide suggestions and advice for future trading.
 
 Main stage of Project:
-* Formulation of the problem.
+* Data preparaition to needed format.
 * Data structure research.
-* Data preparation.
 * Exploring data dependencies.
 * Data cleaning.
 
 
 
 
-**Purpose of formulation of the problem** — 
-By setting the task, we understand the acquaintance with the data and the initial preparation of the data for work.
+**Purpose of preparation data** — 
+Data preparation includes a deeper study of features and their comparison with each other.
 
 **Purpose of data structure research** — 
 The research of the data structure is understood as the division of some features into several more informative ones. The study of the diversity of features obtained from the database. Suggestion for future work.
@@ -43,19 +42,15 @@ For that need a lot of time to work.
 **Adout Structure:**
 * [data](./data) - folder with general and additional data base
 * [plotly](./plotly) - folder with picture of diagrams from main file.
-* [Project-1. Main-File.ipynb](./Project-1.%20Main-File.ipynb.ipynb) - jupyter-notebook, contained main code of project.
-
+* [main.ipynb](./main.ipynb) - jupyter-notebook, contained main code of project for first traider.
+* [s_main.ipynb](./s_main.ipynb) - jupyter-notebook, contained main code of project for second traider.
+* [crypto.ipynb](./crypto.ipynb) - jupyter-notebook, contained main code of project for second traider.
 
 ## Data Description
-This project uses data from the training task SkillFactory School [SkillFactory School.](https://drive.google.com/file/d/1gahvwyBSM-OxLu7atC9aBoRj0xb1tspz/view?usp=sharing)
 
- Or you can unarhiv (dst-3.0_16_1_hh_database.csv.zip) file from Data folder.
-
-The requirements of the terms of reference were to build a model that would predict a fair salary, based on the parameters indicated by the applicant, as well as the level of education and city of residence.
-
-The initial dataset is a set of data from a table with information about the parameters of various candidates indicated in the resume for a certain period.
-
- It contains information about 23 features that describe candidates.
+This project used data This project uses self-collected data.
+For one year, a small group of 2 traders entered manually, without using any API, the results of their trading operations to control their transactions.
+Trading was carried out with the help of several stock brokers and crypto exchanges, such as: Finam Trading, BKS Trading, and Binance, ByBit, respectively.
 
 ## Used Dependencies
 * Python (3.9):
@@ -67,11 +62,15 @@ The initial dataset is a set of data from a table with information about the par
 ## Download Project
 
 ```
-git clone https://github.com/dI98Sk/Project_HH
+git clone https://github.com/dI98Sk/Traiding_Analyse
 ```
 
 ## Usage
-All infirmation show in  Project-1. Main-File.ipynb.
+All infirmation show in these jupyter files:
+* main.ipynb
+* s_main.ipynb
+* crypto.ipynb
+
 
 ##  Autor
 
@@ -80,3 +79,4 @@ All infirmation show in  Project-1. Main-File.ipynb.
 ## Findings
 
 In conclusion, we can say that the work done has a positive effect on future modeling, and helps to build a more accurate model.
+This work allows you to analyze the results of trading for the year, identify weaknesses, and points that require attention in the implementation of future transactions.
